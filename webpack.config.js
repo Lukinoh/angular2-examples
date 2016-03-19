@@ -221,9 +221,9 @@ module.exports = {
     //
     // See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     // NOTE: when adding more properties make sure you include them in custom-typings.d.ts
-    new webpack.DefinePlugin({'ENV': JSON.stringify(METADATA.ENV), 'HMR': HMR}),
+    new webpack.DefinePlugin({'ENV': JSON.stringify(METADATA.ENV), 'HMR': HMR})
 
-    // Plugin: BrowserSyncPlugin
+    /*// Plugin: BrowserSyncPlugin
     // Description: Easily use BrowserSync in your Webpack project.
     // Useful to use the awesome features of BrowserSync and Webpack.
     //
@@ -249,7 +249,7 @@ module.exports = {
         // and let Webpack Dev Server take care of this
         reload: false
       }
-    )
+    )*/
   ],
 
   // Static analysis linter for TypeScript advanced options configuration
