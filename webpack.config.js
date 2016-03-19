@@ -11,6 +11,7 @@ var helpers = require('./helpers');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 /**
  * Webpack Constants
@@ -22,6 +23,8 @@ const METADATA = {
   baseUrl: '/',
   host: 'localhost',
   port: 3000,
+  hostBrowserSync: 'localhost',
+  portBrowserSync: 9000,
   ENV: ENV,
   HMR: HMR
 };
@@ -218,8 +221,35 @@ module.exports = {
     //
     // See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
     // NOTE: when adding more properties make sure you include them in custom-typings.d.ts
-    new webpack.DefinePlugin({'ENV': JSON.stringify(METADATA.ENV), 'HMR': HMR})
+    new webpack.DefinePlugin({'ENV': JSON.stringify(METADATA.ENV), 'HMR': HMR}),
 
+    // Plugin: BrowserSyncPlugin
+    // Description: Easily use BrowserSync in your Webpack project.
+    // Useful to use the awesome features of BrowserSync and Webpack.
+    //
+    // See: https://github.com/Va1/browser-sync-webpack-plugin
+    new BrowserSyncPlugin(
+      // BrowserSync options
+      {
+        // browse to http://localhost:3000/ during development
+        host: METADATA.hostBrowserSync,
+        port: METADATA.portBrowserSync,
+        // proxy the Webpack Dev Server endpoint
+        // (which should be serving on http://localhost:3100/)
+        // through BrowserSync
+        proxy: METADATA.host + ':' + METADATA.port,
+
+        ui: {
+          port: 9001
+        }
+      },
+      // plugin options
+      {
+        // prevent BrowserSync from reloading the page
+        // and let Webpack Dev Server take care of this
+        reload: false
+      }
+    )
   ],
 
   // Static analysis linter for TypeScript advanced options configuration
