@@ -13,6 +13,12 @@ import {FORM_PROVIDERS} from 'angular2/common';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
 /*
+ * Redux
+ */
+import {provideStore} from '@ngrx/store';
+import {users} from './app/users/reducers/users';
+
+/*
  * App Component
  * our top level component that holds all of our components
  */
@@ -28,6 +34,7 @@ const APPLICATION_PROVIDERS = [
   ...HTTP_PROVIDERS,
   ...ROUTER_PROVIDERS,
   ...FORM_PROVIDERS,
+  ...provideStore({users}),
   ngCore.provide(LocationStrategy, { useClass: HashLocationStrategy })
 ];
 

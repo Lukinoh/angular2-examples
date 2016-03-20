@@ -4,8 +4,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, Router} from 'angular2/router';
 
-import {Home} from './home/home';
-
+import { Store } from '@ngrx/store';
 /*
  * App Component
  * Top Level Component
@@ -19,16 +18,10 @@ import {Home} from './home/home';
   templateUrl: '/app/app.html'
 })
 @RouteConfig([
-  { path: '/',      name: 'Index', component: Home, useAsDefault: true },
-  { path: '/home',  name: 'Home',  component: Home },
-  // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!./about/about')('About') },
 ])
 export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
-  constructor() {
+  constructor(private _store: Store<any>) {
+    console.log(_store.getState());
   }
 }
 

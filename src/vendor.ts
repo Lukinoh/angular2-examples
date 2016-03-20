@@ -12,6 +12,8 @@ import 'angular2/router';
 // Extra
 import 'rxjs';
 import '@ngrx/store';
+import 'normalizr';
+import 'immutable';
 
 if ('production' === ENV) {
   // Production
