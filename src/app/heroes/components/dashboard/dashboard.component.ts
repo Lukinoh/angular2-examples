@@ -2,7 +2,7 @@ import {Component, OnInit} from "angular2/core";
 import {Router} from "angular2/router";
 
 import {Hero} from "./../../models/hero.model";
-import {HeroService} from "./../../services/hero.service.ts";
+import {HeroService} from "./../../services/hero.service";
 
 @Component({
   selector: 'lls-dashboard',

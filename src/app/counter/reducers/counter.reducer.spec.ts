@@ -1,6 +1,6 @@
 import {it} from "angular2/testing";
 
-import {counter, INCREMENT, DECREMENT} from "./counter";
+import {counter, INCREMENT, DECREMENT} from "./counter.reducer";
 
 describe('counter', () => {
 

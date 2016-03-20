@@ -1,18 +1,20 @@
 import {Component} from "angular2/core";
 import {RouteConfig} from "angular2/router";
 
-import {HeroService} from "./heroes/services/hero.service.ts";
-import {HeroesComponent} from "./heroes/components/heroes/heroes.component.ts";
-import {DashboardComponent} from "./heroes/components/dashboard/dashboard.component.ts";
-import {HeroDetailComponent} from "./heroes/components/hero-detail/hero-detail.component.ts";
-import {CounterComponent} from "./counter/counter.component";
+import {HeroService} from "./heroes/services/hero.service";
+import {HeroesComponent} from "./heroes/components/heroes/heroes.component";
+import {DashboardComponent} from "./heroes/components/dashboard/dashboard.component";
+import {HeroDetailComponent} from "./heroes/components/hero-detail/hero-detail.component";
+import {CounterContainer} from "./counter/containers/counter.container";
 
 @Component({
   selector: 'lls-app',
   templateUrl: '/app/app.component.html',
   styleUrls: ['./app/app.component.css'],
   directives: [HeroesComponent],
-  providers: [HeroService]
+  providers: [
+    HeroService
+  ]
 })
 @RouteConfig([
   {
@@ -33,7 +35,7 @@ import {CounterComponent} from "./counter/counter.component";
   {
     path: '/counter',
     name: 'Counter',
-    component: CounterComponent,
+    component: CounterContainer,
     useAsDefault: true
   },
 ])
