@@ -14,6 +14,7 @@ import 'rxjs';
 import '@ngrx/store';
 import 'normalizr';
 import 'immutable';
+import '@ngrx/devtools';
 
 if ('production' === ENV) {
   // Production

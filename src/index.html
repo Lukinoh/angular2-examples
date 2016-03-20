@@ -9,6 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="<%= webpackConfig.metadata.title %>">
 
+  <link rel="stylesheet" href="styles.css">
+
   <!-- base url -->
   <base href="<%= webpackConfig.metadata.baseUrl %>">
 
@@ -16,9 +18,9 @@
 
 <body>
 
-  <app>
+  <lls-app>
     Loading...
-  </app>
+  </lls-app>
 
   <% if (webpackConfig.metadata.ENV === 'development') { %>
   <!-- Webpack Dev Server reload -->

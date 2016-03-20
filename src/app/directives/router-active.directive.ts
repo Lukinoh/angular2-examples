@@ -25,7 +25,7 @@ import {Instruction, RouterLink} from 'angular2/router';
 @Directive({
   selector: '[router-active], [routerActive]'
 })
-export class RouterActive {
+export class RouterActiveDirective {
   @Input() routerActive: string = null;
   routerActiveAttr: string = 'active';
 

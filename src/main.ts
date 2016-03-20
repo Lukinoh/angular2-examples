@@ -13,17 +13,11 @@ import {FORM_PROVIDERS} from 'angular2/common';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
 /*
- * Redux
- */
-import {provideStore} from '@ngrx/store';
-import {users} from './app/users/reducers/users';
-
-/*
  * App Component
  * our top level component that holds all of our components
  */
-import {App} from './app/app';
-import {RouterActive} from './app/directives/router-active';
+import {AppComponent} from './app/app.component';
+import {RouterActiveDirective} from './app/directives/router-active.directive';
 
 /*
  * Application Providers/Directives/Pipes
@@ -34,14 +28,13 @@ const APPLICATION_PROVIDERS = [
   ...HTTP_PROVIDERS,
   ...ROUTER_PROVIDERS,
   ...FORM_PROVIDERS,
-  ...provideStore({users}),
   ngCore.provide(LocationStrategy, { useClass: HashLocationStrategy })
 ];
 
 // application_directives: directives that are global through out the application
 const APPLICATION_DIRECTIVES = [
   ...ROUTER_DIRECTIVES,
-  RouterActive
+  RouterActiveDirective
 ];
 
 // application_pipes: pipes that are global through out the application
@@ -65,7 +58,7 @@ if ('production' === ENV) {
  * our Services and Providers into Angular's dependency injection
  */
 export function main() {
-  return browser.bootstrap(App, [
+  return browser.bootstrap(AppComponent, [
     ...APPLICATION_PROVIDERS,
     ngCore.provide(ngCore.PLATFORM_DIRECTIVES, {useValue: APPLICATION_DIRECTIVES, multi: true}),
     ngCore.provide(ngCore.PLATFORM_PIPES, {useValue: APPLICATION_PIPES, multi: true})
