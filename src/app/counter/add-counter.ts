@@ -11,7 +11,7 @@ export const removeCounter = (list: number[], index: number): number[] => {
   return [
     ...list.slice(0, index),
     ...list.slice(index + 1)
-  ]
+  ];
 };
 
 export const incrementCounter = (list: number[], index: number): number[] => {
@@ -23,5 +23,5 @@ export const incrementCounter = (list: number[], index: number): number[] => {
     ...list.slice(0, index),
     list[index] + 1,
     ...list.slice(index + 1)
-  ]
+  ];
 };

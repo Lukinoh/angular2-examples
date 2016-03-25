@@ -1,7 +1,7 @@
-import {it} from "angular2/testing";
+import {it} from 'angular2/testing';
 
-import {addCounter, removeCounter, incrementCounter} from "./add-counter";
-import deepFreeze = require("deep-freeze");
+import {addCounter, removeCounter, incrementCounter} from './add-counter';
+import deepFreeze = require('deep-freeze');
 
 describe('addCounter', () => {
 

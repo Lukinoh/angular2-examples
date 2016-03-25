@@ -1,10 +1,10 @@
-import {Component, OnInit} from "angular2/core";
+import {Component, OnInit} from 'angular2/core';
 
 import {Store} from '@ngrx/store';
 import {INCREMENT, DECREMENT} from './../reducers/counter.reducer';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
 
-import {CounterComponent} from "./../components/counter.component";
+import {CounterComponent} from './../components/counter.component';
 
 @Component({
   selector: 'lls-counter-container',

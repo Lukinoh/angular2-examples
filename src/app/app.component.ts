@@ -1,13 +1,13 @@
-import {Component} from "angular2/core";
-import {RouteConfig} from "angular2/router";
+import {Component} from 'angular2/core';
+import {RouteConfig} from 'angular2/router';
 
-import {HeroesComponent} from "./heroes/components/heroes/heroes.component";
-import {DashboardComponent} from "./heroes/components/dashboard/dashboard.component";
-import {HeroDetailComponent} from "./heroes/components/hero-detail/hero-detail.component";
-import {CounterContainer} from "./counter/containers/counter.container";
-import {counter} from "./counter/reducers/counter.reducer";
-import {provideStore, Middleware, usePostMiddleware} from "@ngrx/store";
-import {HeroService} from "./heroes/services/hero.service";
+import {HeroesComponent} from './heroes/components/heroes/heroes.component';
+import {DashboardComponent} from './heroes/components/dashboard/dashboard.component';
+import {HeroDetailComponent} from './heroes/components/hero-detail/hero-detail.component';
+import {CounterContainer} from './counter/containers/counter.container';
+import {counter} from './counter/reducers/counter.reducer';
+import {provideStore, Middleware, usePostMiddleware} from '@ngrx/store';
+import {HeroService} from './heroes/services/hero.service';
 
 const stateLog : Middleware = state => {
   return state.do(val => {
