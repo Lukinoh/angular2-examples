@@ -1,6 +1,6 @@
 import {Action, Reducer} from '@ngrx/store';
 
-import {EnumVisibilityFilter} from '../../interfaces/visibility-filter.enum';
+import {EnumVisibilityFilter} from '../interfaces/visibility-filter.enum';
 
 
 

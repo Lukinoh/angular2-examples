@@ -1,5 +1,5 @@
 import {Action, Reducer} from '@ngrx/store';
-import {ITodo} from '../../interfaces/todo.interface';
+import {ITodo} from '../interfaces/todo.interface';
 import {Map} from 'immutable';
 
 

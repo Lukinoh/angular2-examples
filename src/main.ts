@@ -19,6 +19,17 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {AppComponent} from './app/app.component';
 import {RouterActiveDirective} from './app/directives/router-active.directive';
 
+import {provideStore, Middleware, usePostMiddleware} from '@ngrx/store';
+import {counter} from "./app/counter/reducers/counter.reducer";
+import {todos} from './app/todo/reducers/todos.reducer';
+import {visibilityFilter} from './app/todo/reducers/filter-visibility.reducer';
+
+const stateLog : Middleware = state => {
+  return state.do(val => {
+    console.info('NEW STATE: ', val)
+  });
+};
+
 /*
  * Application Providers/Directives/Pipes
  * providers/directives/pipes that only live in our browser environment
@@ -61,7 +72,9 @@ export function main() {
   return browser.bootstrap(AppComponent, [
     ...APPLICATION_PROVIDERS,
     ngCore.provide(ngCore.PLATFORM_DIRECTIVES, {useValue: APPLICATION_DIRECTIVES, multi: true}),
-    ngCore.provide(ngCore.PLATFORM_PIPES, {useValue: APPLICATION_PIPES, multi: true})
+    ngCore.provide(ngCore.PLATFORM_PIPES, {useValue: APPLICATION_PIPES, multi: true}),
+    provideStore({counter, todos, visibilityFilter}),
+    usePostMiddleware(stateLog),
   ])
   .catch(err => console.error(err));
 }

@@ -1,0 +1,7 @@
+<a *ngIf="filter !== currentFilter" href="#" (click)="changeVisibility($event)">
+  {{content}}
+</a>
+
+<span *ngIf="filter === currentFilter">
+  {{content}}
+</span>

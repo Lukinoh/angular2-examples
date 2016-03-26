@@ -1,0 +1,17 @@
+<div>
+  <input #input />
+  <button (click)="addTodo(input)">Add Todo</button>
+  <ul>
+    <li *ngFor="#todo of getVisibleTodos(getTodos(), getVisibilityFilter())" (click)="toggleTodo(todo.id)" [style.textDecoration]="todo.completed ? 'line-through' : 'none'">
+      {{todo.text}}
+    </li>
+  </ul>
+  <p>
+    Show:
+    <lls-filter-link [filter]="enumVisibilityFilter.SHOW_ALL" [currentFilter]="getVisibilityFilter()" [content]="'All'"></lls-filter-link>
+    ,&nbsp;
+    <lls-filter-link [filter]="enumVisibilityFilter.SHOW_ACTIVE" [currentFilter]="getVisibilityFilter()" [content]="'Active'"></lls-filter-link>
+    ,&nbsp;
+    <lls-filter-link [filter]="enumVisibilityFilter.SHOW_COMPLETED" [currentFilter]="getVisibilityFilter()" [content]="'Completed'"></lls-filter-link>
+  </p>
+</div>
