@@ -8,6 +8,8 @@ import {ADD_TODO, TOGGLE_TODO} from '../reducers/todos.reducer';
 @Injectable()
 export class TodosModel {
 
+  private nextTodoId = 0;
+
   constructor(private store: Store<any>) {
   }
 
@@ -15,11 +17,11 @@ export class TodosModel {
     return this.store.getState().todos;
   }
 
-  addTodo(id: number, text: string): void {
+  addTodo(text: string): void {
     this.store.dispatch({
       type: ADD_TODO,
       payload: {
-        id: id,
+        id: this.nextTodoId++,
         text: text
       }
     })

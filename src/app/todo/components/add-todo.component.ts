@@ -1,21 +1,20 @@
-import {Component, OnInit, Input} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
+import {TodosModel} from "../models/todos.model";
 
 @Component({
   selector: 'lls-add-todo',
-  templateUrl: './app/todo/components/add-todo.component.html'
+  templateUrl: './app/todo/components/add-todo.component.html',
+  providers: [TodosModel]
 })
 
 export class AddTodoComponent implements OnInit {
 
-  @Input('onAddClick') onAddClickI: (text: string) => void; // I to signify that it comes from input
-
-  constructor() { }
+  constructor(public todos: TodosModel) { }
 
   ngOnInit() { }
 
   onAddClick(input: HTMLInputElement) {
-    this.onAddClickI(input.value);
+    this.todos.addTodo(input.value);
     input.value = '';
   }
-
 }

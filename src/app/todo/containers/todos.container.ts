@@ -1,37 +1,18 @@
 import {Component, OnInit} from 'angular2/core';
-import {TodosModel} from "../models/todos.model";
-import {EnumVisibilityFilter} from "../interfaces/visibility-filter.enum";
-import {ITodo} from "../interfaces/todo.interface";
-import {VisibilityFilterModel} from "../models/visibility-filter.model";
-import {TodoListComponent} from "../components/todo-list.component";
 import {AddTodoComponent} from "../components/add-todo.component";
 import {FooterComponent} from "../components/footer.component";
+import {VisibleTodoListContainer} from "./visible-todo-list.container";
 
 @Component({
   selector: 'lls-todos-container',
   templateUrl: './app/todo/containers/todos.container.html',
-  providers: [TodosModel, VisibilityFilterModel],
-  directives: [FooterComponent, TodoListComponent, AddTodoComponent]
+  directives: [FooterComponent, VisibleTodoListContainer, AddTodoComponent]
 })
 
 export class TodosContainer implements OnInit {
-  private nextTodoId: number;
 
-  constructor(public todos: TodosModel, public visibilityFilter: VisibilityFilterModel) { }
+  constructor() { }
 
   ngOnInit() {
-    this.nextTodoId = 0;
-  }
-
-  addTodo = (text: string) => this.todos.addTodo(this.nextTodoId++, text);
-
-  toggleTodo = (id: number) => this.todos.toggleTodo(id);
-
-  getTodos(): ITodo[] {
-    return this.todos.getList();
-  }
-
-  getVisibilityFilter(): EnumVisibilityFilter {
-    return this.visibilityFilter.getVisibilityFilter();
   }
 }

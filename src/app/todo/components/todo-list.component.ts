@@ -18,22 +18,7 @@ export class TodoListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
-  getVisibleTodos() {
-    switch (this.visibilityFilter) {
-      case EnumVisibilityFilter.SHOW_ALL:
-        return this.todos;
-      case EnumVisibilityFilter.SHOW_COMPLETED:
-        return this.todos.filter(
-          t => t.completed
-        );
-      case EnumVisibilityFilter.SHOW_ACTIVE:
-        return this.todos.filter(
-          t => !t.completed
-        );
-    }
-  }
-
+  
   onTodoClick(id: number) {
     return () => this.onTodoClickI(id);
   }
