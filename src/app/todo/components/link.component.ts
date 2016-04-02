@@ -2,16 +2,15 @@ import {Component, OnInit, Input} from 'angular2/core';
 import {EnumVisibilityFilter} from "../interfaces/visibility-filter.enum";
 
 @Component({
-  selector: 'lls-filter-link',
-  templateUrl: './app/todo/components/filter-link.component.html',
+  selector: 'lls-link',
+  templateUrl: './app/todo/components/link.component.html',
 })
 
-export class FilterLinkComponent implements OnInit {
+export class LinkComponent implements OnInit {
   // Cannot use ng-content for the content because of : https://github.com/angular/angular/issues/6576
   @Input('content') content: string;
-  @Input('filter') filter: EnumVisibilityFilter;
-  @Input('currentFilter') currentFilter: EnumVisibilityFilter;
-  @Input('onClick') onClick: (filter: EnumVisibilityFilter) => void;
+  @Input('active') active: EnumVisibilityFilter;
+  @Input('onClick') onClick: () => void;
 
   constructor() { }
 
@@ -19,7 +18,7 @@ export class FilterLinkComponent implements OnInit {
 
   changeVisibility(e: Event) {
     e.preventDefault();
-    this.onClick(this.filter);
+    this.onClick();
   }
 
 }

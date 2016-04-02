@@ -1,7 +1,6 @@
 import {Component, OnInit} from 'angular2/core';
 import {TodosModel} from "../models/todos.model";
 import {EnumVisibilityFilter} from "../interfaces/visibility-filter.enum";
-import {FilterLinkComponent} from "../components/filter-link.component";
 import {ITodo} from "../interfaces/todo.interface";
 import {VisibilityFilterModel} from "../models/visibility-filter.model";
 import {TodoListComponent} from "../components/todo-list.component";
@@ -27,8 +26,6 @@ export class TodosContainer implements OnInit {
   addTodo = (text: string) => this.todos.addTodo(this.nextTodoId++, text);
 
   toggleTodo = (id: number) => this.todos.toggleTodo(id);
-
-  filterClick = (filter: EnumVisibilityFilter) => this.visibilityFilter.setVisibilityFilter(filter);
 
   getTodos(): ITodo[] {
     return this.todos.getList();

@@ -1,20 +1,14 @@
 <p>
   Show:
-  <lls-filter-link [filter]="enumVisibilityFilter.SHOW_ALL"
-                   [currentFilter]="visibilityFilter"
-                   [onClick]="onFilterClick"
-                   [content]="'All'">
-  </lls-filter-link>
+  <lls-filter-link-container [filter]="enumVisibilityFilter.SHOW_ALL"
+                             [content]="'All'">
+  </lls-filter-link-container>
   ,&nbsp;
-  <lls-filter-link [filter]="enumVisibilityFilter.SHOW_ACTIVE"
-                   [currentFilter]="visibilityFilter"
-                   [onClick]="onFilterClick"
-                   [content]="'Active'">
-  </lls-filter-link>
+  <lls-filter-link-container [filter]="enumVisibilityFilter.SHOW_ACTIVE"
+                             [content]="'Active'">
+  </lls-filter-link-container>
   ,&nbsp;
-  <lls-filter-link [filter]="enumVisibilityFilter.SHOW_COMPLETED"
-                   [currentFilter]="visibilityFilter"
-                   [onClick]="onFilterClick"
-                   [content]="'Completed'">
-  </lls-filter-link>
+  <lls-filter-link-container [filter]="enumVisibilityFilter.SHOW_COMPLETED"
+                             [content]="'Completed'">
+  </lls-filter-link-container>
 </p>
