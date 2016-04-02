@@ -1,0 +1,20 @@
+<p>
+  Show:
+  <lls-filter-link [filter]="enumVisibilityFilter.SHOW_ALL"
+                   [currentFilter]="visibilityFilter"
+                   [onClick]="onFilterClick"
+                   [content]="'All'">
+  </lls-filter-link>
+  ,&nbsp;
+  <lls-filter-link [filter]="enumVisibilityFilter.SHOW_ACTIVE"
+                   [currentFilter]="visibilityFilter"
+                   [onClick]="onFilterClick"
+                   [content]="'Active'">
+  </lls-filter-link>
+  ,&nbsp;
+  <lls-filter-link [filter]="enumVisibilityFilter.SHOW_COMPLETED"
+                   [currentFilter]="visibilityFilter"
+                   [onClick]="onFilterClick"
+                   [content]="'Completed'">
+  </lls-filter-link>
+</p>

@@ -1,0 +1,3 @@
+<ul>
+  <lls-todo *ngFor="#todo of getVisibleTodos()" [text]="todo.text" [completed]="todo.completed" [onClick]="onTodoClick(todo.id)"></lls-todo>
+</ul>

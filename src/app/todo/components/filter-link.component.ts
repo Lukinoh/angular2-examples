@@ -1,11 +1,9 @@
 import {Component, OnInit, Input} from 'angular2/core';
-import {VisibilityFilterModel} from "../models/visibility-filter.model";
 import {EnumVisibilityFilter} from "../interfaces/visibility-filter.enum";
 
 @Component({
   selector: 'lls-filter-link',
   templateUrl: './app/todo/components/filter-link.component.html',
-  providers: [VisibilityFilterModel]
 })
 
 export class FilterLinkComponent implements OnInit {
@@ -13,14 +11,15 @@ export class FilterLinkComponent implements OnInit {
   @Input('content') content: string;
   @Input('filter') filter: EnumVisibilityFilter;
   @Input('currentFilter') currentFilter: EnumVisibilityFilter;
+  @Input('onClick') onClick: (filter: EnumVisibilityFilter) => void;
 
-  constructor(private visibilityFilter: VisibilityFilterModel) { }
+  constructor() { }
 
   ngOnInit() { }
 
   changeVisibility(e: Event) {
     e.preventDefault();
-    this.visibilityFilter.setVisibilityFilter(this.filter);
+    this.onClick(this.filter);
   }
 
 }
